@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Things That Feel Like Me — Wening</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "DM Sans", sans-serif;
+            background: #fffaf5;
+            color: #252525;
+            overflow-x: hidden;
+            transition: background 0.4s ease, color 0.4s ease;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        /* =========================
+           BACKGROUND DECORATION
+        ========================= */
+
+        .blob {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.35;
+            z-index: -2;
+            pointer-events: none;
+        }
+
+        .blob-one {
+            width: 350px;
+            height: 350px;
+            background: #ff8fab;
+            top: -100px;
+            left: -100px;
+        }
+
+        .blob-two {
+            width: 300px;
+            height: 300px;
+            background: #8ec5ff;
+            top: 40%;
+            right: -120px;
+        }
+
+        .blob-three {
+            width: 300px;
+            height: 300px;
+            background: #ffd166;
+            bottom: -100px;
+            left: 35%;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(92%, 1050px);
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 14px 20px;
+
+            background: rgba(255,255,255,0.65);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 50px;
+
+            box-shadow: 0 10px 40px rgba(50,50,50,0.08);
+
+            z-index: 1000;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .logo span {
+            color: #ff5c8a;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #ff5c8a;
+        }
+
+        .theme-btn {
+            border: none;
+            background: #252525;
+            color: white;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 17px;
+            transition: 0.3s;
+        }
+
+        .theme-btn:hover {
+            transform: rotate(20deg) scale(1.08);
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 130px 8% 80px;
+
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .small-label {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            border-radius: 50px;
+
+            background: rgba(255,255,255,0.7);
+
+            border: 1px solid rgba(255,255,255,0.9);
+
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 25px;
+
+            animation: fadeUp 0.8s ease;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(55px, 10vw, 110px);
+
+            line-height: 0.95;
+
+            margin-bottom: 25px;
+
+            animation: fadeUp 1s ease;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(
+                90deg,
+                #ff5c8a,
+                #ff9f43,
+                #7b61ff,
+                #00b894
+            );
+
+            -webkit-background-clip: text;
+            color: transparent;
+
+            background-size: 300%;
+            animation: gradientMove 6s infinite;
+        }
+
+        .hero p {
+            max-width: 600px;
+            margin: auto;
+
+            color: #666;
+
+            font-size: 17px;
+            line-height: 1.8;
+
+            animation: fadeUp 1.2s ease;
+        }
+
+        .scroll-btn {
+            display: inline-block;
+
+            margin-top: 40px;
+
+            padding: 15px 25px;
+
+            border-radius: 50px;
+
+            background: #252525;
+            color: white;
+
+            font-weight: 600;
+
+            transition: 0.3s;
+
+            animation: fadeUp 1.4s ease;
+        }
+
+        .scroll-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        section {
+            width: min(1100px, 90%);
+            margin: auto;
+            padding: 100px 0;
+        }
+
+        .section-title {
+            margin-bottom: 45px;
+        }
+
+        .section-title small {
+            color: #ff5c8a;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(38px, 5vw, 58px);
+            margin-top: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+            margin-top: 12px;
+            max-width: 600px;
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           CARDS
+        ========================= */
+
+        .grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+        .card {
+            position: relative;
+
+            padding: 30px;
+
+            border-radius: 28px;
+
+            min-height: 260px;
+
+            overflow: hidden;
+
+            background: rgba(255,255,255,0.7);
+
+            border: 1px solid rgba(255,255,255,0.8);
+
+            backdrop-filter: blur(15px);
+
+            box-shadow: 0 15px 45px rgba(40,40,40,0.08);
+
+            transition:
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
+
+            cursor: pointer;
+        }
+
+        .card:hover {
+            transform: translateY(-10px) rotate(0.5deg);
+
+            box-shadow:
+                0 25px 60px rgba(40,40,40,0.13);
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 20px;
+
+            font-size: 27px;
+
+            margin-bottom: 25px;
+        }
+
+        .pink {
+            background: #ffd6e4;
+        }
+
+        .blue {
+            background: #d7eaff;
+        }
+
+        .yellow {
+            background: #fff0bd;
+        }
+
+        .green {
+            background: #d5f6e7;
+        }
+
+        .purple {
+            background: #e6ddff;
+        }
+
+        .orange {
+            background: #ffe0c2;
+        }
+
+        .card h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        .card-link {
+            display: inline-block;
+
+            margin-top: 22px;
+
+            font-size: 13px;
+            font-weight: 700;
+
+            color: #ff5c8a;
+        }
+
+        .floating-shape {
+            position: absolute;
+
+            width: 130px;
+            height: 130px;
+
+            border-radius: 50%;
+
+            right: -40px;
+            bottom: -50px;
+
+            opacity: 0.4;
+
+            transition: 0.5s;
+        }
+
+        .card:hover .floating-shape {
+            transform: scale(1.4);
+        }
+
+
+        /* =========================
+           MUSIC
+        ========================= */
+
+        .music-player {
+            margin-top: 30px;
+
+            padding: 22px;
+
+            border-radius: 20px;
+
+            background: rgba(255,255,255,0.7);
+
+            display: flex;
+            align-items: center;
+
+            gap: 18px;
+        }
+
+        .music-cover {
+            width: 60px;
+            height: 60px;
+
+            border-radius: 15px;
+
+            background: linear-gradient(
+                135deg,
+                #ff7aa2,
+                #8b7cff
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 25px;
+
+            color: white;
+        }
+
+        .music-info {
+            flex: 1;
+        }
+
+        .music-info strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .music-info span {
+            color: #777;
+            font-size: 13px;
+        }
+
+        .play-btn {
+            border: none;
+
+            width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+
+            background: #252525;
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           PHOTO WALL
+        ========================= */
+
+        .photo-wall {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 15px;
+        }
+
+        .photo {
+            height: 210px;
+
+            border-radius: 20px;
+
+            display: flex;
+            align-items: end;
+
+            padding: 20px;
+
+            color: white;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background: linear-gradient(
+                135deg,
+                #ff8fab,
+                #7b61ff
+            );
+
+            transition: 0.4s;
+        }
+
+        .photo:nth-child(2) {
+            background: linear-gradient(
+                135deg,
+                #00b894,
+                #00cec9
+            );
+        }
+
+        .photo:nth-child(3) {
+            background: linear-gradient(
+                135deg,
+                #ffb347,
+                #ff6b6b
+            );
+        }
+
+        .photo:nth-child(4) {
+            background: linear-gradient(
+                135deg,
+                #6c5ce7,
+                #a29bfe
+            );
+        }
+
+        .photo:hover {
+            transform: scale(1.04);
+        }
+
+        .photo span {
+            position: relative;
+            z-index: 2;
+
+            font-weight: 700;
+        }
+
+
+        /* =========================
+           CURRENTLY INTO
+        ========================= */
+
+        .currently {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .tag {
+            padding: 12px 18px;
+
+            border-radius: 50px;
+
+            font-size: 14px;
+            font-weight: 600;
+
+            background: white;
+
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+
+            transition: 0.3s;
+        }
+
+        .tag:hover {
+            transform: translateY(-4px);
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            text-align: center;
+
+            padding: 70px 20px;
+
+            background: #252525;
+
+            color: white;
+
+            border-radius: 50px 50px 0 0;
+        }
+
+        footer h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: 42px;
+
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #bbb;
+            max-width: 500px;
+            margin: auto;
+            line-height: 1.7;
+        }
+
+        .footer-heart {
+            color: #ff5c8a;
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark {
+            background: #151515;
+            color: #f5f5f5;
+        }
+
+        body.dark nav {
+            background: rgba(30,30,30,0.75);
+            border-color: rgba(255,255,255,0.08);
+        }
+
+        body.dark .nav-links a {
+            color: #ccc;
+        }
+
+        body.dark .hero p,
+        body.dark .section-title p,
+        body.dark .card p {
+            color: #aaa;
+        }
+
+        body.dark .card,
+        body.dark .music-player,
+        body.dark .tag {
+            background: rgba(35,35,35,0.8);
+            border-color: rgba(255,255,255,0.06);
+        }
+
+        body.dark .theme-btn {
+            background: white;
+            color: #222;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientMove {
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 100%;
+            }
+
+            100% {
+                background-position: 0%;
+            }
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .photo-wall {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                padding-top: 150px;
+            }
+
+            .card {
+                min-height: 230px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            section {
+                padding: 70px 0;
+            }
+
+            .photo-wall {
+                grid-template-columns: 1fr;
+            }
+
+            .photo {
+                height: 230px;
+            }
+
+            footer h2 {
+                font-size: 34px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <!-- Background -->
+    <div class="blob blob-one"></div>
+    <div class="blob blob-two"></div>
+    <div class="blob blob-three"></div>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            Wen<span>.</span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#music">Musik</a></li>
+            <li><a href="#places">Tempat</a></li>
+            <li><a href="#food">Makanan</a></li>
+            <li><a href="#moments">Momen</a></li>
+        </ul>
+
+        <button class="theme-btn" id="themeBtn">
+            ☀
+        </button>
+
+    </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <span class="small-label">
+                ✦ sedikit tentang aku
+            </span>
+
+            <h1>
+                Things That
+                <span class="gradient">
+                    Feel Like Me.
+                </span>
+            </h1>
+
+            <p>
+                Sebuah ruang kecil yang berisi hal-hal yang aku suka,
+                tempat yang ingin aku kunjungi, musik yang sering aku dengarkan,
+                dan momen-momen kecil yang membuat hidup terasa lebih berwarna.
+            </p>
+
+            <a href="#explore" class="scroll-btn">
+                Jelajahi ceritaku ↓
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         MAIN
+    ========================== -->
+
+    <main id="explore">
+
+
+        <!-- MUSIC -->
+
+        <section id="music">
+
+            <div class="section-title">
+
+                <small>01 — Musik</small>
+
+                <h2>
+                    Apa yang sedang<br>
+                    aku dengarkan?
+                </h2>
+
+                <p>
+                    Musik selalu punya cara sendiri untuk menemani
+                    hari-hari biasa menjadi sedikit lebih spesial.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon pink">
+                    🎧
+                </div>
+
+                <h3>
+                    Currently on repeat
+                </h3>
+
+                <p>
+                    Beberapa lagu yang belakangan ini sering menemani
+                    perjalanan, belajar, atau sekadar waktu santai.
+                </p>
+
+
+                <div class="music-player">
+
+                    <div class="music-cover">
+                        ♪
+                    </div>
+
+                    <div class="music-info">
+
+                        <strong>
+                            From The Start
+                        </strong>
+
+                        <span>
+                            Laufey • sedang sering diputar
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="play-btn"
+                        id="playBtn">
+                        ▶
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PLACES -->
+
+        <section id="places">
+
+            <div class="section-title">
+
+                <small>02 — Tempat</small>
+
+                <h2>
+                    Ke mana aku<br>
+                    ingin pergi?
+                </h2>
+
+                <p>
+                    Aku suka menemukan tempat baru dan mencoba
+                    pengalaman yang belum pernah aku rasakan sebelumnya.
+                </p>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <div class="card-icon blue">
+                        📍
+                    </div>
+
+                    <h3>
+                        Tempat baru
+                    </h3>
+
+                    <p>
+                        Kota, tempat wisata, atau tempat sederhana
+                        yang belum pernah aku datangi.
+                    </p>
+
+                    <span class="card-link">
+                        explore more →
+                    </span>
+
+                    <div
+                        class="floating-shape"
+                        style="background:#8ec5ff;">
+                    </div>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon purple">
+                        🌏
+                    </div>
+
+                    <h3>
+                        Dream destination
+                    </h3>
+
+                    <p>
+                        Jepang, Korea, dan berbagai tempat lain
+                        yang suatu hari ingin aku eksplor.
+                    </p>
+
+                    <span class="card-link">
+                        someday →
+                    </span>
+
+                    <div
+                        class="floating-shape"
+                        style="background:#a29bfe;">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOD -->
+
+        <section id="food">
+
+            <div class="section-title">
+
+                <small>03 — Makanan</small>
+
+                <h2>
+                    Good food,<br>
+                    good mood.
+                </h2>
+
+                <p>
+                    Karena makanan sederhana pun bisa menjadi
+                    bagian dari hari yang menyenangkan.
+                </p>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <div class="card-icon yellow">
+                        🍜
+                    </div>
+
+                    <h3>
+                        Comfort food
+                    </h3>
+
+                    <p>
+                        Makanan yang selalu terasa nyaman,
+                        terutama ketika sedang ingin menikmati
+                        sesuatu yang familiar.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon orange">
+                        🍰
+                    </div>
+
+                    <h3>
+                        Food to try
+                    </h3>
+
+                    <p>
+                        Selalu ada makanan baru yang menarik untuk
+                        dicoba. Karena mencoba sesuatu yang baru
+                        juga bagian dari eksplorasi.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MOMENTS -->
+
+        <section id="moments">
+
+            <div class="section-title">
+
+                <small>04 — Momen</small>
+
+                <h2>
+                    Little moments<br>
+                    worth keeping.
+                </h2>
+
+                <p>
+                    Tidak semua momen harus besar untuk menjadi
+                    sesuatu yang berharga.
+                </p>
+
+            </div>
+
+
+            <div class="photo-wall">
+
+                <div class="photo">
+                    <span>
+                        ☁️ Langit sore
+                    </span>
+                </div>
+
+                <div class="photo">
+                    <span>
+                        🌿 Jalan-jalan
+                    </span>
+                </div>
+
+                <div class="photo">
+                    <span>
+                        🍰 Food day
+                    </span>
+                </div>
+
+                <div class="photo">
+                    <span>
+                        ✨ Random moment
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOBBIES -->
+
+        <section>
+
+            <div class="section-title">
+
+                <small>05 — Keseharian</small>
+
+                <h2>
+                    Hal-hal kecil<br>
+                    yang aku nikmati.
+                </h2>
+
+            </div>
+
+
+            <div class="grid">
+
+                <div class="card">
+
+                    <div class="card-icon green">
+                        🏃
+                    </div>
+
+                    <h3>
+                        Jogging
+                    </h3>
+
+                    <p>
+                        Salah satu cara sederhana untuk bergerak,
+                        menghabiskan waktu, dan menikmati suasana.
+                    </p>
+
+                </div>
+
+
+                <div class="card">
+
+                    <div class="card-icon blue">
+                        🗺️
+                    </div>
+
+                    <h3>
+                        Exploring
+                    </h3>
+
+                    <p>
+                        Mencari tempat baru, melihat sesuatu yang
+                        berbeda, dan mengumpulkan pengalaman baru.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CURRENTLY INTO -->
+
+        <section>
+
+            <div class="section-title">
+
+                <small>06 — Sekarang</small>
+
+                <h2>
+                    Currently into...
+                </h2>
+
+                <p>
+                    Hal-hal yang sedang aku sukai, pelajari,
+                    atau ingin coba saat ini.
+                </p>
+
+            </div>
+
+
+            <div class="currently">
+
+                <div class="tag">
+                    🎧 Musik
+                </div>
+
+                <div class="tag">
+                    🔬 Food Science
+                </div>
+
+                <div class="tag">
+                    💻 Web Design
+                </div>
+
+                <div class="tag">
+                    📸 Photography
+                </div>
+
+                <div class="tag">
+                    🗺️ Exploring
+                </div>
+
+                <div class="tag">
+                    🌱 New Experiences
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <h2>
+            That's a little bit of me.
+        </h2>
+
+        <p>
+            Terima kasih sudah meluangkan waktu untuk melihat
+            sisi kecil dari dunia aku.
+            <br><br>
+            Dibuat dengan <span class="footer-heart">♥</span>
+            dan sedikit rasa penasaran.
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        /* =========================
+           DARK / LIGHT MODE
+        ========================== */
+
+        const themeBtn =
+            document.getElementById("themeBtn");
+
+        themeBtn.addEventListener("click", () => {
+
+            document.body.classList.toggle("dark");
+
+            if (
+                document.body.classList.contains("dark")
+            ) {
+                themeBtn.textContent = "☾";
+            } else {
+                themeBtn.textContent = "☀";
+            }
+
+        });
+
+
+        /* =========================
+           MUSIC BUTTON
+        ========================== */
+
+        const playBtn =
+            document.getElementById("playBtn");
+
+        let playing = false;
+
+        playBtn.addEventListener("click", () => {
+
+            playing = !playing;
+
+            if (playing) {
+
+                playBtn.textContent = "Ⅱ";
+
+            } else {
+
+                playBtn.textContent = "▶";
+
+            }
+
+        });
+
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        const cards =
+            document.querySelectorAll(".card, .photo, .tag");
+
+        const observer =
+            new IntersectionObserver(
+                (entries) => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.style.opacity = "1";
+
+                            entry.target.style.transform =
+                                "translateY(0)";
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.15
+                }
+            );
+
+
+        cards.forEach(card => {
+
+            card.style.opacity = "0";
+
+            card.style.transform =
+                "translateY(30px)";
+
+            card.style.transition =
+                "opacity 0.7s ease, transform 0.7s ease";
+
+            observer.observe(card);
+
+        });
+
+
+        /* =========================
+           MOUSE PARALLAX
+        ========================== */
+
+        document.addEventListener(
+            "mousemove",
+            (event) => {
+
+                const x =
+                    (event.clientX / window.innerWidth - 0.5) * 20;
+
+                const y =
+                    (event.clientY / window.innerHeight - 0.5) * 20;
+
+                document
+                    .querySelector(".blob-one")
+                    .style.transform =
+                    `translate(${x}px, ${y}px)`;
+
+                document
+                    .querySelector(".blob-two")
+                    .style.transform =
+                    `translate(${-x}px, ${-y}px)`;
+
+            }
+        );
+
+    </script>
+
+</body>
+</html>
